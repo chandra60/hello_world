@@ -1,16 +1,12 @@
 pipeline {
     agent any
-
+    triggers {
+        githubPush()
+    }
     stages {
-        stage('Checkout Code') {
+        stage('Webhook Test') {
             steps {
-                echo "Code checked out successfully"
-            }
-        }
-
-        stage('Run Hello World') {
-            steps {
-                sh './hello.sh'
+                echo 'GitHub webhook is working'
             }
         }
     }
